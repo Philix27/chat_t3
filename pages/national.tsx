@@ -19,6 +19,6 @@ export default function ChatPage() {
     );
   }
   if (data) {
-    return <GChatView states={data} />;
+    return <GChatView states={data} chatId="all_states" />;
   }
 }

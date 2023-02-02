@@ -20,9 +20,14 @@ type MessageInputType = {
   timeSent: string;
 };
 
-export default function MsgSection() {
-  const stateCollection = "state_abia_room";
-  const roomCollectionRef = collection(firestoreDb, stateCollection);
+interface Props {
+  roomId: string;
+}
+
+export default function MsgSection(props: Props): JSX.Element {
+  const roomCollection = props.roomId;
+  const roomCollectionRef = collection(firestoreDb, roomCollection);
+
   const [messages, setMessages] = useState<MessageDtoType[]>([]);
   const [newMessage, setNewMessage] = useState<String>("New Msg");
 

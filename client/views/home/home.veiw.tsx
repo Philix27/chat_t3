@@ -12,16 +12,16 @@ export default function HomeView() {
             <p>All the 36 states and capital.</p>
           </div>
         </Link>
-        <Link href="/statechat/ABIA">
+        <Link href="/national">
           <div>
-            <h3>All States Admin</h3>
-            <p>Admin for all the various states.</p>
+            <h3>National</h3>
+            <p>Admin for all the various states. All States Admin</p>
           </div>
         </Link>
 
-        <Link href="/lgachat/ABIA">
+        <Link href="/statechat/ABIA">
           <div>
-            <h3>LGA Admins</h3>
+            <h3>State</h3>
             <p>
               All LGA Chats, view all LGA admins and see activities in the
               respective LGAs.
@@ -31,8 +31,15 @@ export default function HomeView() {
 
         <Link href="/chat">
           <div>
-            <h3>Ward Chat</h3>
-            <p>For Ward agents and Polling Unit agents. </p>
+            <h3>LGA Chat</h3>
+            <p>For all ward agents in the LGA. </p>
+          </div>
+        </Link>
+
+        <Link href="/lga/ABIA">
+          <div>
+            <h3>Ward</h3>
+            <p>For all polling unit agents in the ward.</p>
           </div>
         </Link>
       </div>
