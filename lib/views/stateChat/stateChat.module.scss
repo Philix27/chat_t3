@@ -1,0 +1,25 @@
+@import "../../../styles/screensize";
+@import "../../../styles/variables";
+
+@mixin sidebar {
+  width: 30%;
+  background-color: #fff;
+  // padding: 20px;
+}
+.wrapper {
+  flex-direction: column;
+  height: 100%;
+
+  // overflow: hidden;
+  margin-top: 50px;
+  .body {
+    min-height: 100vh;
+    overflow-y: scroll;
+    display: grid;
+    grid-template-columns: 20% 80%;
+    position: relative;
+    @include mobileSS {
+      grid-template-columns: 0% 100% 0%;
+    }
+  }
+}

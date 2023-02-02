@@ -1,0 +1,104 @@
+@import "../../../styles/screensize";
+@import "../../../styles/variables";
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  margin-bottom: 50px;
+  min-height: 100%;
+  position: relative;
+  .bubbleSection {
+    padding: 10px;
+    @include mobileSS {
+      padding: 5px;
+    }
+    .myChatBubbleContainer {
+      display: flex;
+      justify-content: space-between;
+      .myChatBubble {
+        margin: 10px;
+        padding: 10px;
+        background-color: #4f98f1;
+        color: #fff;
+        border-radius: 5px 10px 0px 5px;
+        width: 45%;
+        .title {
+          display: flex;
+          justify-content: space-between;
+          .time {
+            font-weight: 200;
+            font-size: 10px;
+          }
+        }
+      }
+    }
+
+    .othersChatBubble {
+      margin: 10px;
+      padding: 10px;
+      background-color: #fff;
+      border-radius: 10px 5px 5px 0px;
+      max-width: 45%;
+      .title {
+        display: flex;
+        justify-content: space-between;
+        .time {
+          font-weight: 200;
+          font-size: 10px;
+        }
+      }
+    }
+  }
+  .textField {
+    padding: 0px 10px;
+    width: 70%;
+    position: fixed;
+    bottom: 0px;
+    background-color: #fff;
+    display: grid;
+    grid-template-columns: 80% 20%;
+    align-items: center;
+    div {
+      margin: 0;
+      padding: 0;
+    }
+    @include mobileSS {
+      width: 100%;
+    }
+    input[type="text"] {
+      padding: 10px;
+      border-radius: 0px;
+      border: none;
+      margin: 8px 0;
+      box-sizing: border-box;
+      width: 100%;
+      border-radius: 20px;
+      background-color: $background1;
+    }
+    input[type="button"] {
+      padding: 10px 20px;
+      width: 100%;
+      background-color: $primaryColor;
+      cursor: pointer;
+      transition: 0.5s ease;
+      border: none;
+      border-radius: 0px;
+      color: #fff;
+      border-radius: 20px;
+      &:hover {
+        background-color: #4f98f1;
+      }
+      &:focus {
+        outline: none;
+      }
+      &:active {
+        background: #e0e4eb;
+        border: 1px solid #304169;
+        box-shadow: inset 0px 2px 1px rgba(46, 49, 55, 0.15),
+          inset 0px 0px 4px rgba(20, 20, 55, 0.3);
+      }
+    }
+  }
+}

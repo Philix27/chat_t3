@@ -1,0 +1,15 @@
+@import "../../../../styles/screensize";
+@import "../../../../styles/variables";
+
+.navbar {
+  height: 50px;
+  background-color: $primaryColor;
+  color: white;
+  line-height: 50px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  .title {
+    padding-left: 20px;
+  }
+}

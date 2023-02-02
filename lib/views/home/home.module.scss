@@ -1,0 +1,47 @@
+@import "../../../styles/variables";
+@import "../../../styles/screensize";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+
+  .cards {
+    padding: 50px auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 20px;
+    row-gap: 20px;
+
+    div {
+      background-color: #fff;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      height: 250px;
+      width: 250px;
+      border-radius: 20px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      h3 {
+        color: $primaryColor;
+      }
+      p {
+        color: rgb(121, 119, 119);
+        font-weight: 300;
+        text-align: center;
+      }
+      &:hover {
+        background-color: $primaryColor;
+        color: #fff;
+        h3,
+        p {
+          color: #fff;
+        }
+      }
+    }
+  }
+}

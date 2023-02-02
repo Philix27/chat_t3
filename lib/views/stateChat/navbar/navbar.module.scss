@@ -1,0 +1,18 @@
+@import "../../../../styles/screensize";
+@import "../../../../styles/variables";
+
+.navbar {
+  height: 50px;
+  background-color: $primaryColor;
+  color: white;
+  line-height: 50px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+  // position: -webkit-sticky; /* Safari */
+  // position: sticky;
+  .title {
+    padding-left: 20px;
+  }
+}

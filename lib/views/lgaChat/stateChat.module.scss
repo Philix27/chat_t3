@@ -1,0 +1,28 @@
+@import "../../../styles/screensize";
+@import "../../../styles/variables";
+
+@mixin sidebar {
+  width: 30%;
+  background-color: #fff;
+  // padding: 20px;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  overflow: hidden;
+  // margin-top: 50px;
+  .body {
+    height: 100%;
+    display: flex;
+    .lgas {
+      @include sidebar;
+      width: 15%;
+    }
+    .chat {
+      width: 70%;
+      background-color: $secondaryColor;
+    }
+  }
+}

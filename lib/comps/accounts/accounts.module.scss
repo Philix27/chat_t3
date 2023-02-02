@@ -1,0 +1,23 @@
+@import "../../../styles/screensize";
+@import "../../../styles/variables";
+
+.wrapper {
+  .title {
+    color: $fontColor;
+    padding-left: 20px;
+    height: 50px;
+    border-bottom: 1px solid $secondaryColor;
+    line-height: 50px;
+  }
+  ul {
+    // padding-left: 20px;
+    li {
+      padding: 10px 20px;
+      border-bottom: 1px solid $secondaryColor;
+      &:hover {
+        background-color: $primaryColor;
+        color: #fff;
+      }
+    }
+  }
+}
