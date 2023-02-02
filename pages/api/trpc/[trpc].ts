@@ -1,8 +1,8 @@
 import { createNextApiHandler } from "@trpc/server/adapters/next";
 
-import { env } from "../../../src/env/server.mjs";
-import { createTRPCContext } from "../../../server/api/trpc";
-import { appRouter } from "../../../server/api/root";
+import { env } from "../../../client/env/server.mjs";
+import { createTRPCContext } from "../../../server/trpc";
+import { appRouter } from "../../../server/root";
 
 // export API handler
 export default createNextApiHandler({

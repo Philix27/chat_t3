@@ -1,6 +1,6 @@
 import React from "react";
-import Accounts from "../src/comps/accounts/accounts";
-import MsgSection from "../src/comps/msgs/msgSection";
+import Accounts from "../client/comps/accounts/accounts";
+import MsgSection from "../client/comps/msgs/msgSection";
 import styles from "../styles/chatpage.module.scss";
 
 export default function ChatPage() {

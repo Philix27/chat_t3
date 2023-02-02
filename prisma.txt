@@ -1,0 +1,457 @@
+generator client {
+  provider = "prisma-client-js"
+}
+// npx prisma db push
+// npm prisma migrate dev --name dname
+
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model agents {
+  id                   Int                 @id(map: "PK_3e5ddff1948143c623b88fd40ad") @default(dbgenerated("nextval('_agents_id_seq'::regclass)"))
+  firstname            String              @db.VarChar
+  lastname             String              @db.VarChar
+  stateId              Int?
+  lgaId                Int?
+  wardsId              Int?
+  bankName             String              @db.VarChar
+  accountNumber        String              @db.VarChar
+  phoneNumber          String              @db.VarChar
+  gender               String              @db.VarChar
+  dob                  String              @db.VarChar
+  nin                  String              @db.VarChar
+  address              String              @db.VarChar
+  email                String              @db.VarChar
+  image                String              @db.VarChar
+  agentType            String              @db.VarChar
+  electionType         String              @db.VarChar
+  registrationDate     String              @db.VarChar
+  senatorialDistrictId Int?
+  fedConstId           Int?
+  stateConstId         Int?
+  pollingUnitId        Int?
+  lga                  lga?                @relation(fields: [lgaId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "FK_08cfab8e6f05fc770a714a53525")
+  senatorialDistrict   senatorialDistrict? @relation(fields: [senatorialDistrictId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "FK_23bcbb68d514e772d9612002225")
+  stateConst           stateConst?         @relation(fields: [stateConstId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "FK_5526fbd13135ca6c08460d7d9e4")
+  pollingunit          pollingunit?        @relation(fields: [pollingUnitId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "FK_66ef0a86fb1cacd1584c6c59b7a")
+  state                state?              @relation(fields: [stateId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "FK_7d630df0570eb939d3b7f1bd670")
+  fedConst             fedConst?           @relation(fields: [fedConstId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "FK_a45c194a039011843f0961384b7")
+  ward                 ward?               @relation(fields: [wardsId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "FK_af24c64f4d9de93c406521f49fa")
+  electionForm         electionForm[]
+
+  @@map("_agents")
+}
+
+model agent_types {
+  id   Int    @id(map: "PK_9858c4457964290a4165b25da36") @default(autoincrement())
+  type String @db.VarChar
+}
+
+
+
+model apc_agents {
+  id                       String?   @map("_id") @db.VarChar(512)
+  firstname                String?   @db.VarChar(512)
+  lastname                 String?   @db.VarChar(512)
+  email                    String?   @db.VarChar(512)
+  phone                    String?   @db.VarChar(512)
+  address                  String?   @db.VarChar(512)
+  state                    String?   @db.VarChar(512)
+  lga                      String?   @db.VarChar(512)
+  ward                     String?   @db.VarChar(512)
+  gender                   String?   @db.VarChar(512)
+  dateOfBirth              String?   @db.VarChar(512)
+  electiontype             String?   @db.VarChar(512)
+  agenttype                String?   @db.VarChar(512)
+  pollingunit              String?   @db.VarChar(512)
+  image                    String?   @db.VarChar(512)
+  bankname                 String?   @db.VarChar(512)
+  accountnumber            String?   @db.VarChar(512)
+  nin                      String?   @db.VarChar(512)
+  status                   String?   @db.VarChar(512)
+  isapproved               Boolean?
+  registrationdate         DateTime? @db.Timestamp(6)
+  transactionref           String?   @db.VarChar(512)
+  isagent                  Boolean?
+  sponsored                Boolean?
+  sponsorcode              String?   @db.VarChar(512)
+  v                        Int?      @map("__v")
+  hevo__database_name      String    @map("__hevo__database_name") @db.VarChar(128)
+  hevo_id                  String    @map("__hevo_id") @db.VarChar(64)
+  name                     String?   @db.VarChar(512)
+  hevo__ingested_at        BigInt?   @map("__hevo__ingested_at")
+  hevo__marked_deleted     Boolean?  @map("__hevo__marked_deleted")
+  hevo__source_modified_at BigInt?   @map("__hevo__source_modified_at")
+  stateId                  String?   @db.VarChar
+  senatorialDistrictId     String?   @db.VarChar
+
+  @@id([hevo_id, hevo__database_name])
+}
+
+model apc_state {
+  id                  String? @map("_id") @db.VarChar(512)
+  name                String? @db.VarChar(512)
+  capital             String? @db.VarChar(512)
+  hevo__database_name String  @map("__hevo__database_name") @db.VarChar(128)
+  hevo_id             String  @map("__hevo_id") @db.VarChar(64)
+  hevo__ingested_at   BigInt? @map("__hevo__ingested_at")
+
+  @@id([hevo_id, hevo__database_name])
+}
+
+model apc_state_entity {
+  id                  String? @map("_id") @db.VarChar(512)
+  name                String? @db.VarChar(512)
+  capital             String? @db.VarChar(512)
+  hevo__database_name String  @map("__hevo__database_name") @db.VarChar(128)
+  hevo_id             String  @map("__hevo_id") @db.VarChar(64)
+  hevo__ingested_at   BigInt? @map("__hevo__ingested_at")
+
+  @@id([hevo_id, hevo__database_name])
+}
+
+model apc_statereps {
+  id                       String?  @map("_id") @db.VarChar(512)
+  name                     String?  @db.VarChar(512)
+  email                    String?  @db.VarChar(512)
+  v                        Int?     @map("__v")
+  hevo__database_name      String   @map("__hevo__database_name") @db.VarChar(128)
+  hevo_id                  String   @map("__hevo_id") @db.VarChar(64)
+  hevo__ingested_at        BigInt?  @map("__hevo__ingested_at")
+  hevo__marked_deleted     Boolean? @map("__hevo__marked_deleted")
+  hevo__source_modified_at BigInt?  @map("__hevo__source_modified_at")
+
+  @@id([hevo_id, hevo__database_name])
+}
+
+model apc_users {
+  id                       String?  @map("_id") @db.VarChar(512)
+  name                     String?  @db.VarChar(512)
+  email                    String?  @db.VarChar(512)
+  phone                    String?  @db.VarChar(512)
+  state                    String?  @db.VarChar(512)
+  password                 String?  @db.VarChar(512)
+  usertype                 String?  @db.VarChar(512)
+  v                        Int?     @map("__v")
+  hevo__database_name      String   @map("__hevo__database_name") @db.VarChar(128)
+  hevo_id                  String   @map("__hevo_id") @db.VarChar(64)
+  hevo__ingested_at        BigInt?  @map("__hevo__ingested_at")
+  hevo__marked_deleted     Boolean? @map("__hevo__marked_deleted")
+  hevo__source_modified_at BigInt?  @map("__hevo__source_modified_at")
+
+  @@id([hevo_id, hevo__database_name])
+}
+
+model candidates {
+  id               Int             @id(map: "PK_140681296bf033ab1eb95288abb") @default(autoincrement())
+  name             String          @db.VarChar
+  politicalPartyId Int?
+  politicalParty   politicalParty? @relation(fields: [politicalPartyId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "FK_c36a34e4f620a3afdabbf0d778c")
+}
+
+model chatroom {
+  id          Int    @id(map: "PK_1e5ce0a999152e29952194d01ff") @default(autoincrement())
+  chartroomId String @db.VarChar
+  logoUrl     String @db.VarChar
+}
+
+model electionForm {
+  id      Int     @id(map: "PK_4a42ebd186b478066d35dc4a1dc") @default(autoincrement())
+  name    String  @db.VarChar
+  wardId  Int?
+  lgaId   Int?
+  stateId Int?
+  agentId Int?
+  ward    ward?   @relation(fields: [wardId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "FK_4759ffc32661dd13ef24b77b447")
+  agents  agents? @relation(fields: [agentId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "FK_686958a99f62db99270671a753c")
+  state   state?  @relation(fields: [stateId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "FK_83326868b714bf3cc286e69f8d7")
+  lga     lga?    @relation(fields: [lgaId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "FK_e8161f2571ee7b84f3e1752b64a")
+}
+
+model electionTypes {
+  id   Int    @id(map: "PK_f9d0f0715bb7adc1d421f68d8b9") @default(autoincrement())
+  name String @db.VarChar
+}
+
+model electionYears {
+  id   Int    @id(map: "PK_6917d9319ff673e8c51531cff03") @default(autoincrement())
+  year String @db.VarChar
+}
+
+model email_templates {
+  title      String   @unique(map: "IDX_4d77a74e85c275da60f4badf83") @db.VarChar
+  slug       String   @db.VarChar
+  sender     String   @db.VarChar
+  subject    String   @db.VarChar
+  body       String   @db.VarChar
+  isDefault  Boolean
+  id         Int      @id(map: "PK_098c857611466fc731da94919b5") @default(autoincrement()) @map("_id")
+  created_at DateTime @default(now()) @db.Timestamp(6)
+  updated_at DateTime @default(now()) @db.Timestamp(6)
+}
+
+model fedConst {
+  id      Int      @id(map: "PK_83824c16a322f85dee9ea585a71") @default(autoincrement())
+  name    String   @db.VarChar
+  stateId Int?
+  agents  agents[]
+  state   state?   @relation(fields: [stateId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "FK_6f2a85011aa19f3c91077641ddf")
+}
+
+model lga {
+  id                   Int                 @id(map: "PK_732755837379a4fff12c6b0f412") @default(autoincrement())
+  name                 String              @db.VarChar
+  stateId              Int?
+  senatorialDistrictId Int?
+  agents               agents[]
+  electionForm         electionForm[]
+  senatorialDistrict   senatorialDistrict? @relation(fields: [senatorialDistrictId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "FK_06b1a17d3457f8ba9bfdf5b0bc0")
+  state                state?              @relation(fields: [stateId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "FK_3739312e62be0013a3a9ed73d95")
+  ward                 ward[]
+}
+
+model migrations {
+  id        Int    @id(map: "PK_8c82d7f526340ab734260ea46be") @default(autoincrement())
+  timestamp BigInt
+  name      String @db.VarChar
+}
+
+model permission {
+  id        Int                       @id(map: "PK_3b8b97af9d9d8807e41e6f48362") @default(autoincrement())
+  createdAt DateTime                  @default(now()) @db.Timestamp(6)
+  updatedAt DateTime                  @default(now()) @db.Timestamp(6)
+  canCreate permission_cancreate_enum @default(create_any)
+  canRead   permission_canread_enum   @default(read_any)
+  canEdit   permission_canedit_enum   @default(update_any)
+  canDelete permission_candelete_enum @default(delete_any)
+  roleId    Int?
+  resource  permission_resource_enum
+  role      role?                     @relation(fields: [roleId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "FK_cdb4db95384a1cf7a837c4c683e")
+}
+
+model permissions {
+  id              Int               @id(map: "PK_920331560282b8bd21bb02290df") @default(autoincrement())
+  createdAt       DateTime          @default(now()) @db.Timestamp(6)
+  updatedAt       DateTime          @default(now()) @db.Timestamp(6)
+  resource        String            @db.VarChar(100)
+  description     String            @unique(map: "IDX_94b0c1df9c647ac7f26e989318") @db.VarChar
+  path            String            @db.VarChar
+  method          String            @default("get") @db.VarChar(20)
+  isDefault       Boolean
+  role_permission role_permission[]
+}
+
+model politicalParties {
+  id       Int    @id(map: "PK_92250016c45a1c278139a878890") @default(autoincrement())
+  name     String @db.VarChar
+  photoUrl String @db.VarChar
+}
+
+model politicalParty {
+  id                                                    Int                                                     @id(map: "PK_3d1fb1f3eb7603f7d4ba0d79cc5") @default(autoincrement())
+  name                                                  String                                                  @db.VarChar
+  logoUrl                                               String                                                  @db.VarChar
+  candidates                                            candidates[]
+  presidential_election_results_parties_political_party presidential_election_results_parties_political_party[]
+}
+
+model polling_unit {
+  id     Int    @id(map: "PK_44082b30dfe0a7a833c953a9836") @default(autoincrement())
+  name   String @db.VarChar
+  wardId Int?
+  ward   ward?  @relation(fields: [wardId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "FK_bf66488368b59cbba877f520268")
+}
+
+model pollingunit {
+  id     Int      @id(map: "PK_caa1a153944d8ff66b56c24dc17") @default(autoincrement())
+  name   String   @db.VarChar
+  wardId Int?
+  agents agents[]
+  ward   ward?    @relation(fields: [wardId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "FK_b913da017f6600c67b90e6fc648")
+}
+
+model presidential_election_results {
+  id                                                    Int                                                     @id(map: "PK_f3d8ae9fa00263f00961e1a163d") @default(autoincrement())
+  no_valid_votes                                        Int?                                                    @default(0)
+  vote_count                                            Int
+  polling_unit_id                                       Int
+  party_id                                              Int
+  created_at                                            DateTime                                                @default(now()) @db.Timestamptz(6)
+  updated_at                                            DateTime                                                @default(now()) @db.Timestamptz(6)
+  no_invalid_votes                                      Int?                                                    @default(0)
+  image                                                 String                                                  @db.VarChar
+  presidential_election_results_parties_political_party presidential_election_results_parties_political_party[]
+}
+
+model presidential_election_results_parties_political_party {
+  presidentialElectionResultsId Int
+  politicalPartyId              Int
+  politicalParty                politicalParty                @relation(fields: [politicalPartyId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "FK_dd0949d2959940de07370a728df")
+  presidential_election_results presidential_election_results @relation(fields: [presidentialElectionResultsId], references: [id], onDelete: Cascade, map: "FK_e5a776981b11e8d4dfaa16421e9")
+
+  @@id([presidentialElectionResultsId, politicalPartyId], map: "PK_06afb3c2ae2675ce301f21bca06")
+  @@index([politicalPartyId], map: "IDX_dd0949d2959940de07370a728d")
+  @@index([presidentialElectionResultsId], map: "IDX_e5a776981b11e8d4dfaa16421e")
+}
+
+model refcodes {
+  id          Int    @id(map: "PK_3b0c52f6e261b547935219cac24") @default(autoincrement())
+  refcode     String @db.VarChar
+  agentTypeId Int
+  status      String @default("UNASSIGNED") @db.VarChar
+  name        String @db.VarChar
+  wardId      Int?
+  ward        ward?  @relation(fields: [wardId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "FK_5da3596d5856716aa17fa49f835")
+}
+
+model role {
+  id          Int          @id(map: "PK_b36bcfe02fc8de3c57a8b2391c2") @default(autoincrement())
+  name        String       @db.VarChar(120)
+  description String?      @db.VarChar(255)
+  createdAt   DateTime     @default(now()) @db.Timestamp(6)
+  updatedAt   DateTime     @default(now()) @db.Timestamp(6)
+  permission  permission[]
+}
+
+model role_permission {
+  roleId       Int
+  permissionId Int
+  permissions  permissions @relation(fields: [permissionId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "FK_72e80be86cab0e93e67ed1a7a9a")
+  roles        roles       @relation(fields: [roleId], references: [id], onDelete: Cascade, map: "FK_e3130a39c1e4a740d044e685730")
+
+  @@id([roleId, permissionId], map: "PK_b42bbacb8402c353df822432544")
+  @@index([permissionId], map: "IDX_72e80be86cab0e93e67ed1a7a9")
+  @@index([roleId], map: "IDX_e3130a39c1e4a740d044e68573")
+}
+
+model roles {
+  id              Int               @id(map: "PK_c1433d71a4838793a49dcad46ab") @default(autoincrement())
+  createdAt       DateTime          @default(now()) @db.Timestamp(6)
+  updatedAt       DateTime          @default(now()) @db.Timestamp(6)
+  name            String            @unique(map: "IDX_648e3f5447f725579d7d4ffdfb") @db.VarChar(100)
+  description     String
+  role_permission role_permission[]
+}
+
+model senatorialDistrict {
+  id      Int      @id(map: "PK_7ff15939c63f35023de865ade6d") @default(autoincrement())
+  name    String   @db.VarChar
+  stateId Int?
+  agents  agents[]
+  lga     lga[]
+  state   state?   @relation(fields: [stateId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "FK_b0e30387b00e9a272f9e4db2266")
+}
+
+model spatial_ref_sys {
+  srid      Int     @id
+  auth_name String? @db.VarChar(256)
+  auth_srid Int?
+  srtext    String? @db.VarChar(2048)
+  proj4text String? @db.VarChar(2048)
+}
+
+model state {
+  id                 Int                  @id(map: "PK_549ffd046ebab1336c3a8030a12") @default(autoincrement())
+  name               String               @db.VarChar
+  capital            String               @db.VarChar
+  longnitude         Decimal?             @db.Decimal
+  latitude           Decimal?             @db.Decimal
+  agents             agents[]
+  electionForm       electionForm[]
+  fedConst           fedConst[]
+  lga                lga[]
+  senatorialDistrict senatorialDistrict[]
+  stateConst         stateConst[]
+  ward               ward[]
+}
+
+model stateConst {
+  id      Int      @id(map: "PK_3c4eec4b74baa4eb9369ea7734d") @default(autoincrement())
+  name    String   @db.VarChar
+  stateId Int?
+  agents  agents[]
+  state   state?   @relation(fields: [stateId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "FK_698d1ad656fdaede905e331b464")
+}
+
+model test_agents4 {
+  lastName       String                 @db.VarChar
+  firstName      String                 @db.VarChar
+  email          String                 @db.VarChar
+  password       String                 @db.VarChar
+  phone          String                 @db.VarChar
+  address        String                 @db.VarChar
+  state          String                 @db.VarChar
+  lga            String                 @db.VarChar
+  ward           String                 @db.VarChar
+  image          String                 @db.VarChar
+  bankName       String                 @db.VarChar
+  bankAccount    String                 @db.VarChar
+  status         String                 @db.VarChar
+  created_at     DateTime               @default(now()) @db.Timestamp(6)
+  updated_at     DateTime               @default(now()) @db.Timestamp(6)
+  id             Int                    @id(map: "PK_c1351ac566e594e4ac2a136244e") @default(autoincrement()) @map("_id")
+  role           test_agents4_role_enum @default(agent)
+  electionTypeId Int?
+  agentType      String?                @db.VarChar
+}
+
+model ward {
+  id           Int            @id(map: "PK_e6725fa4a50e449c4352d2230e1") @default(autoincrement())
+  name         String         @db.VarChar
+  lgaId        Int?
+  stateId      Int?
+  agents       agents[]
+  electionForm electionForm[]
+  polling_unit polling_unit[]
+  pollingunit  pollingunit[]
+  refcodes     refcodes[]
+  lga          lga?           @relation(fields: [lgaId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "FK_33c69ff6fae7643d098a95b3d19")
+  state        state?         @relation(fields: [stateId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "FK_825255ebff25cba4143f12a802b")
+}
+
+enum permission_cancreate_enum {
+  create_any @map("create:any")
+  create_own @map("create:own")
+}
+
+enum permission_candelete_enum {
+  delete_any @map("delete:any")
+  delete_own @map("delete:own")
+}
+
+enum permission_canedit_enum {
+  update_any @map("update:any")
+  update_own @map("update:own")
+}
+
+enum permission_canread_enum {
+  read_any @map("read:any")
+  read_own @map("read:own")
+}
+
+enum permission_resource_enum {
+  author
+  book
+  cart
+  category
+  coupon
+  language
+  order
+  permission
+  publisher
+  review
+  role
+  shipping
+  user
+  address
+}
+
+enum test_agents4_role_enum {
+  superAdmin
+  stateAdmin
+  wardAdmin
+  agent
+}

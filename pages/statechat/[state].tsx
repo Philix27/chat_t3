@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import React from "react";
-import StateChat from "../../src/views/stateChat/stateChat";
+import StateChat from "../../client/views/stateChat/stateChat";
 
 export default function ChatPage() {
   const router = useRouter();

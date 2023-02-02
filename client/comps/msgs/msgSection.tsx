@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import setClasses from "../../../utils/setClasses";
 import styles from "./msgsection.module.scss";
-import { firestoreDb } from "../../../config/firebse";
+
 import {
   collection,
   DocumentData,
@@ -11,6 +10,7 @@ import {
 } from "firebase/firestore";
 import MessageDtoType from "./msgType";
 import TimeAgo from "timeago-react";
+import { firestoreDb } from "../../utils/firebse";
 
 type MessageInputType = {
   message: string;

@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import LgaList from "./lga/lgaList";
 import MsgSection from "../../comps/msgs/msgSection";
 import styles from "./stateChat.module.scss";
-import { data } from "../../../constants/states";
+
 import StateChatNavbar from "./navbar/navbar";
 import LgaAgentList from "./agentList/agentList";
 

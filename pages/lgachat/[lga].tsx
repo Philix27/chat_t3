@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import React from "react";
-import LgaChat from "../../src/views/lgaChat/lgaChat";
-import StateChat from "../../src/views/stateChat/stateChat";
+import LgaChat from "../../client/views/lgaChat/lgaChat";
+import StateChat from "../../client/views/stateChat/stateChat";
 
 export default function ChatPage() {
   const router = useRouter();

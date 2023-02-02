@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import LgaList from "./states/statesList";
 import MsgSection from "../../comps/msgs/msgSection";
 import styles from "./stateChat.module.scss";
-import { data } from "../../../constants/states";
+// import { data } from "../../../constants/states";
 import StateChatNavbar from "./navbar/navbar";
 import LgaAgentList from "./agentList/agentList";
 
@@ -11,15 +11,15 @@ interface Props {
 }
 
 export default function CardsComp(props: Props): JSX.Element {
-  const selectedLg = data.states.filter((val) =>
-    val.state.toLowerCase().includes(props.userState?.toLowerCase())
-  );
+  // const selectedLg = data.states.filter((val) =>
+  //   val.state.toLowerCase().includes(props.userState?.toLowerCase())
+  // );
 
   return (
     <div className={styles.wrapper}>
-      <StateChatNavbar state={selectedLg[0].state} />
+      {/* <StateChatNavbar state={selectedLg[0].state} /> */}
       <div className={styles.body}>
-        <LgaList lga={selectedLg[0].lga} />
+        {/* <LgaList lga={selectedLg[0].lga} /> */}
         <MsgSection />
         {/* <LgaAgentList lga={selectedLg[0].lga} /> */}
       </div>
