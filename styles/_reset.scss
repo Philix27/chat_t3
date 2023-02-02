@@ -1,0 +1,35 @@
+@import 'variables';
+
+ * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    
+  }
+  body {
+    padding: 0;
+    margin: 0;
+    font-family: $fontFamily;
+    font-size: 1.6rem;
+    background: $background1;
+    color: $fontColor;
+    cursor: default;
+
+  }
+ 
+
+  h1,h2,h3,h4,h5,h6,button {
+    font-family: $fontFamily;
+     padding-bottom: 1.2rem;
+  }
+
+  a {
+    text-decoration: none;
+  }
+  li{
+    list-style: none;
+  }

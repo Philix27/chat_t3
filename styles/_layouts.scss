@@ -1,0 +1,26 @@
+@import 'screensize';
+
+
+.section {
+  display: flex;
+  flex-direction: column;
+  padding: 32px 48px 0;
+  margin: 50px auto;
+  max-width: 1040px;
+  box-sizing: content-box;
+  position: relative;
+  overflow: hidden;
+  align-items:  center;
+  grid-template-columns: repeat(2, 1fr);
+
+  @include tabletSS{ 
+    padding: 24px 48px 0;
+    flex-direction: column;
+  }
+
+  @include mobileSS{
+    padding: 16px 16px 0;
+    width: calc(100vw - 32px);
+    flex-direction: column;
+  }
+}
