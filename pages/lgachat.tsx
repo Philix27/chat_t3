@@ -12,7 +12,7 @@ export default function ChatPage() {
           <Accounts />
         </div>
         <div className={styles.chat}>
-          <MsgSection />
+          <MsgSection roomId={"ABA"} />
         </div>
         <div className={styles.highlight}>Highlight div</div>
       </div>

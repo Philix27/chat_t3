@@ -5,18 +5,4 @@ export const stateRouter = createTRPCRouter({
   getAll: publicProcedure.query(({ ctx }) => {
     return ctx.prisma.state.findMany();
   }),
-
-  create: publicProcedure
-    .input(
-      z.object({ name: z.string(), capital: z.string(), code: z.string() })
-    )
-    .mutation(({ ctx }) => {
-      return ctx.prisma.state.create({
-        data: {
-          name: "string",
-          capital: "string",
-          code: "string",
-        },
-      });
-    }),
 });

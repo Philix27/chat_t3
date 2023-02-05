@@ -6,25 +6,17 @@ export const wardRouter = createTRPCRouter({
     return ctx.prisma.ward.findMany();
   }),
 
-  create: publicProcedure
+  getByStateId: publicProcedure
     .input(
-      z.object({ name: z.string(), capital: z.string(), code: z.string() })
+      z.object({
+        lgaId: z.number(),
+      })
     )
-    .mutation(({ ctx }) => {
-      return ctx.prisma.state.create({
-        data: {
-          name: "string",
-          capital: "string",
-          code: "string",
+    .query(({ input, ctx }) => {
+      return ctx.prisma.lga.findMany({
+        where: {
+          stateId: input.lgaId,
         },
       });
     }),
-
-  // hello: publicProcedure.
-  //   .input(z.object({ text: z.string() }))
-  //   .query(({ input }) => {
-  //     return {
-  //       greeting: `Hello ${input.text}`,
-  //     };
-  //   }),
 });

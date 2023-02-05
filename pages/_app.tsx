@@ -4,6 +4,7 @@ import { SessionProvider } from "next-auth/react";
 import { api } from "../client/utils/api";
 
 import "../styles/index.scss";
+import "../styles/globals.css";
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,

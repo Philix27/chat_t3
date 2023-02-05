@@ -1,6 +1,7 @@
 import React from "react";
 import GChatView from "../client/views/gchat/gChat";
 import { api } from "../client/utils/api";
+import CardsSection from "../client/views/cards/cards.veiw";
 
 export default function ChatPage() {
   const { data, isLoading, error } = api.state.getAll.useQuery();
