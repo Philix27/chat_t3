@@ -1,0 +1,20 @@
+@import "../../../styles/variables";
+@import "../../../styles/screensize";
+
+.contents {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 30px;
+  @include mobileSS {
+    padding: 0;
+  }
+  .marker {
+    background-color: $primaryColor;
+    height: 30px;
+    width: 30px;
+    border-radius: 15px;
+    color: #fff;
+    text-align: center;
+    line-height: 30px;
+  }
+}

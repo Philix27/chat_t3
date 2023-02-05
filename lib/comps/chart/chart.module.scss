@@ -1,0 +1,16 @@
+@import "../../../styles/variables";
+@import "../../../styles/screensize";
+
+.container {
+  background-color: #fff;
+  padding: 20px;
+  margin: 20px 50px;
+  // box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+
+  @include mobileSS {
+    margin: 10px 20px;
+    border-radius: 5px;
+    padding: 10px;
+  }
+}

@@ -1,0 +1,72 @@
+@import "../../../styles/variables";
+@import "../../../styles/screensize";
+
+@mixin cardItem {
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+  display: flex;
+  // flex-direction: column;
+  justify-content: space-between;
+
+  h4 {
+    color: rgb(82, 82, 79);
+    font-size: large;
+  }
+  h6 {
+    color: rgb(82, 82, 79);
+  }
+}
+
+@mixin fingerprint {
+  background-color: $primaryColor;
+  color: #fff;
+  padding: 10px;
+  height: 50px;
+  width: 50px;
+  border-radius: 40px;
+  align-self: center;
+  text-align: center;
+}
+.voteInfo {
+  padding: 10px 0px;
+  padding-bottom: 0px;
+  margin: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  row-gap: 15px;
+  column-gap: 15px;
+  @include tabletSS {
+    padding: 20px 10px;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 15px;
+    column-gap: 15px;
+  }
+  @include mobileSS {
+    padding: 10px 0px;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 10px;
+    column-gap: 10px;
+  }
+  .card {
+    @include cardItem;
+    .validFontColor {
+      color: rgb(70, 180, 6);
+    }
+    .rejFontColor {
+      color: rgb(192, 3, 28);
+    }
+    .fingerprint {
+      @include fingerprint;
+    }
+    .fingerprint_valid {
+      @include fingerprint;
+      background-color: rgb(70, 180, 6);
+    }
+    .fingerprint_rej {
+      @include fingerprint;
+      background-color: rgb(192, 3, 28);
+    }
+  }
+}

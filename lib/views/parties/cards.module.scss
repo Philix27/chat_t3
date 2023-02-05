@@ -1,0 +1,45 @@
+@import "../../../styles/variables";
+@import "../../../styles/screensize";
+
+.contents {
+  padding: 40px 50px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+  width: 100%;
+
+  @include tabletSS {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @include mobileSS {
+    padding: 10px 20px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 8px;
+  }
+  .card {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    cursor: pointer;
+    color: $fontColor;
+    @include mobileSS {
+      padding: 12px;
+      border-radius: 5px;
+    }
+    &:hover {
+      border-color: $primaryColor;
+      border-width: 1px;
+      border-style: solid;
+    }
+    h4 {
+      color: $primaryColor;
+      font-size: small;
+      font-weight: 500;
+    }
+    p {
+      font-size: smaller;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+@import "screensize";
+@import "variables";
+
+.imager {
+  padding: 50px;
+  // background-color: aqua;
+  grid-template-columns: repeat(10, 1fr);
+
+  .imageCard {
+    padding: 5px;
+    img {
+      height: 50px;
+      width: 50px;
+      object-fit: contain;
+    }
+  }
+}

@@ -1,0 +1,78 @@
+@import 'screensize';
+  
+  .post_page{
+
+
+  .img{
+  width:100%;
+  max-height: 35vh; 
+  object-fit: cover;
+  /* overflow: hidden; */
+  }
+  
+  .content{
+    padding: 4rem 0;
+    line-height: 20px;
+    ol{
+      padding: 10px 10px;
+      // padding-top: 10px;
+      line-height: 2.5rem;
+      font-size: 2rem;
+      font-weight: 300;
+       @include mobileSS{
+         padding-left: 30px;
+       }
+      li{
+        list-style: square;
+      }
+    }
+    ul{
+      padding-bottom: 10px;
+      padding-top: 10px;
+      list-style: circle;
+       @include mobileSS{
+         padding-left: 30px;
+       }
+        li{
+        list-style: circle;
+      }
+    }
+    h1{
+      padding-bottom: 10px;
+      padding-top: 10px;
+      font-size: 2.6rem;
+    }
+    h2{
+      padding-bottom: 10px;
+      padding-top: 10px;
+      font-size: 2rem;
+    }
+    h3{
+      padding-bottom: 8px;
+      padding-top: 8px;
+      font-size: 1.7rem;
+    }
+    p{
+      line-height: 2.5rem;
+      padding: 10px 40px;
+      font-size: 2rem;
+      font-weight: 300;
+       @include mobileSS{
+         padding: 10px 10px;
+       }
+    }
+
+    img{
+      width: 100%;
+      // max-width: 80vw;
+      max-height: 40vh; 
+      object-fit: cover;
+    }
+  }
+ 
+    
+    .sectionText{
+      line-height: 2rem;
+
+    }
+}

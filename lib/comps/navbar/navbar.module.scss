@@ -1,0 +1,105 @@
+@import "../../../styles/variables";
+@import "../../../styles/screensize";
+
+.navbar {
+  background-color: #fff;
+  color: $primaryColor;
+  width: 100%;
+  height: 50px;
+  z-index: 2;
+  position: fixed;
+  top: 0;
+  padding-left: 15px;
+  // display: none;
+
+  @include tabletSS {
+    display: block;
+  }
+
+  @include mobileSS {
+    padding-left: 20px;
+    visibility: visible;
+  }
+
+  .show {
+    left: 0;
+  }
+  label.brand {
+    font-size: medium;
+    font-weight: bold;
+    display: inline-block;
+    position: absolute;
+    line-height: 50px;
+    color: $primaryColor;
+    a {
+      color: $primaryColor;
+    }
+  }
+
+  ul {
+    float: right;
+    margin-right: 40px;
+    border-top: rgb(189, 191, 192);
+    border-style: solid;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    border-width: 0.5px;
+    @include tabletSS {
+      visibility: visible;
+      position: fixed;
+      width: 100%;
+      background-color: #fff;
+      color: $primaryColor;
+      top: 50px;
+      text-align: center;
+      left: -100%;
+      transition: all 0.5s;
+    }
+
+    li {
+      line-height: 50px;
+      display: inline-block;
+      color: $primaryColor;
+      @include tabletSS {
+        display: block;
+        margin: 20px;
+        line-height: 30px;
+      }
+      &:hover {
+        background-color: $primaryColor;
+        color: #fff;
+        transition: 0.5s;
+      }
+      a {
+        font-size: medium;
+        color: $primaryColor;
+        text-transform: uppercase;
+        margin: 0 20px;
+      }
+    }
+    .active {
+      background-color: $primaryColor;
+      transition: 0.5s;
+      a {
+        color: #fff;
+      }
+    }
+  }
+  label.icon {
+    color: $primaryColor;
+    font-size: medium;
+    line-height: 50px;
+    float: right;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+
+    @include tabletSS {
+      display: block;
+    }
+    @include mobileSS {
+      visibility: visible;
+    }
+  }
+}

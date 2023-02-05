@@ -1,0 +1,87 @@
+@import 'colors';
+@import 'variables';
+@import 'screensize';
+
+.sectionTitle {
+  font-weight: f-weight(bold);
+  font-size: f-size(large);
+  line-height: 72px;
+  width: max-content;
+  max-width: 100%;
+  color: $bigFontColor;
+  margin-bottom: 16px;
+
+  @include tabletSS{
+      font-size: f-size(medium);
+      line-height: 65px;
+    }
+  @include mobileSS{
+    font-size: f-size(small);
+    line-height: 50px;
+  }
+ 
+}
+.sectionJumbotron {
+  max-width: 800px;
+  font-size: 24px;
+  line-height: 40px;
+  font-weight: 300;
+  padding-bottom: 3.6rem;
+  /* color: rgba(255, 255, 255, 0.5); */
+
+  @include tabletSS {
+    max-width: 670px;
+    font-size: 20px;
+    line-height: 32px;
+    padding-bottom: 24px;
+  }
+
+   @include mobileSS {
+    font-size: 18px;
+    line-height: 24px;
+    padding-bottom: 16px;
+  }
+}
+
+.sectionText {
+  max-width: 800px;
+  font-size: 18px;
+  line-height: 35px;
+  font-weight: 300;
+  // padding-bottom: 3.6rem;
+  /* color: rgba(255, 255, 255, 0.5); */
+
+   @include tabletSS  {
+    max-width: 670px;
+    font-size: 16px;
+    line-height: 30px;
+    // padding-bottom: 24px;
+  }
+
+  @include mobileSS  {
+    font-size: 14px;
+    line-height: 20px;
+    // padding-bottom: 16px;
+  }
+}
+.sectionSmallText {
+  max-width: 800px;
+  font-size: 15px;
+  line-height: 35px;
+  font-weight: 300;
+  // padding-bottom: 3.6rem;
+  /* color: rgba(255, 255, 255, 0.5); */
+
+   @include tabletSS  {
+    max-width: 670px;
+    font-size: 13px;
+    line-height: 30px;
+    // padding-bottom: 24px;
+  }
+
+  @include mobileSS  {
+    font-size: 11px;
+    line-height: 20px;
+    // padding-bottom: 16px;
+  }
+}

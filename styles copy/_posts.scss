@@ -1,0 +1,68 @@
+@import "colors";
+
+.postsSection {
+  .gridContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    padding: 3rem;
+    align-self: center;
+    align-content: center;
+
+    @include tabletSS {
+      grid-template-columns: repeat(2, 1fr);
+      padding: 2rem;
+      padding-bottom: 0;
+    }
+
+    @include mobileSS {
+      grid-template-columns: repeat(1, 1fr);
+      padding: 2rem;
+      padding-bottom: 0;
+    }
+  }
+
+  .img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .card {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+  }
+
+  .headerThree {
+    color: #414143;
+    padding: 10px;
+    font-size: 1.2rem;
+  }
+
+  select {
+  height: 100%;
+  width: 50%;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  background: $primaryColor; 
+  font-weight: 400;
+  font-size: 1.6rem;
+  padding: 15px 12px;
+  margin: 20px 0; 
+  text-align: center;
+   @include mobileSS {
+     width: 75%;
+   }
+}
+ option {
+  padding: 12px 0;
+  text-align: center;
+  /* margin: 10px 0; */
+}
+}

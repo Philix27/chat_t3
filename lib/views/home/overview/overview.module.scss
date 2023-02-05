@@ -1,0 +1,19 @@
+@import "./styles/variables";
+@import "./styles/screensize";
+
+.statePage {
+  // margin-left: 200px;
+
+  display: flex;
+  flex-direction: column;
+  // background-color: $primaryColor;
+  @include tabletSS {
+    margin: 0px;
+  }
+
+  .rechart {
+    min-height: calc(100vh - 50px);
+    // margin: 10px auto;
+    margin-top: 50px;
+  }
+}

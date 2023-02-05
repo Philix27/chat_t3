@@ -1,0 +1,58 @@
+.preview {
+  margin: 0 auto;
+  box-sizing: content-box;
+  .errorMsg {
+    color: rgb(208, 7, 7);
+    // padding: 10px auto;
+    font-size: smaller;
+    padding-bottom: 10px;
+  }
+  @include mobileSS {
+  }
+  img {
+    // height: 250px;
+    // margin: 10px;
+    width: 100%;
+    border-radius: 10px;
+    max-width: 60%;
+    height: auto;
+    // object-fit: fill;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9em;
+    border-radius: 20px 20px 5px 5px;
+    // overflow: hidden;
+    // box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+
+  table tr th {
+    background-color: $primaryColor;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+    font-weight: 300;
+  }
+
+  table tr {
+    border-bottom: 1px solid $secondaryColor;
+  }
+
+  table tr:hover {
+    background-color: $primaryColor;
+    color: #fff;
+    font-weight: 300;
+  }
+
+  tr:nth-of-type(even) {
+    background-color: $secondaryColor;
+  }
+
+  tr:last-of-type {
+    border-bottom: 2px solid $primaryColor;
+  }
+  td {
+    padding: 10px 12px;
+  }
+}

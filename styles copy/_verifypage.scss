@@ -1,0 +1,62 @@
+.verifyPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  background-image: linear-gradient(rgba(9, 106, 163, 0.3), rgba(2, 4, 14, 0.3)),
+    url(../public/images/bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  overflow: scroll;
+  scroll-behavior: smooth;
+  @include mobileSS {
+    margin-left: 0;
+  }
+
+  .h2 {
+    font-weight: lighter;
+    font-size: small;
+    color: #fff;
+  }
+
+  .agentCard {
+    background-color: $background1;
+    // padding-left: 20px;
+    border-radius: 10px;
+    width: 100%;
+    margin: 0px;
+    display: flex;
+    border-bottom: 3px solid rgb(100, 98, 98);
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    @include mobileSS {
+      // padding: 10px auto;
+    }
+    .content {
+      display: flex;
+      align-items: center;
+      .text {
+        padding: 10px;
+      }
+      h4 {
+        font-weight: 400;
+      }
+    }
+
+    .iconButton {
+      // background-color: $primaryColor;
+      // padding: 10px 20px;
+      border-radius: 10px;
+      color: $primaryColor;
+      font-size: larger;
+      cursor: pointer;
+      font-size: larger;
+      width: 50px;
+      align-items: center;
+      justify-items: center;
+      // height: fit-content;
+    }
+  }
+}

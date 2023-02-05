@@ -1,0 +1,68 @@
+@import "../../../styles/variables";
+@import "../../../styles/screensize";
+
+.contents {
+  padding: 0px 10px;
+  margin: 0 auto;
+  @include tabletSS {
+    padding: 20px 10px;
+  }
+  .tableSection {
+    max-width: 90vw;
+    overflow-x: scroll;
+  }
+  table {
+    // min-width: calc(100vw - 400px);
+    width: calc(100vw - 300px);
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    border-radius: 10px 10px 5px 5px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+  table tr th {
+    background-color: $primaryColor;
+    color: #fff;
+    padding: 10px 0px;
+    text-align: center;
+    // width: 100px;
+    // font-weight: bold;
+    // width: fit-content;
+    // min-width: max-content;
+
+    .heads {
+      display: flex;
+      h4 {
+        padding-right: 5px;
+      }
+      img {
+        padding-left: 5px;
+        border-radius: 5px;
+        height: 20px;
+        width: 20px;
+      }
+    }
+  }
+
+  table tr {
+    border-bottom: 1px solid $secondaryColor;
+  }
+
+  table tr:hover {
+    background-color: $primaryColor;
+    color: #fff;
+    font-weight: 300;
+  }
+
+  tr:nth-of-type(even) {
+    background-color: #fff;
+  }
+
+  tr:last-of-type {
+    border-bottom: 2px solid $primaryColor;
+  }
+  td {
+    padding: 10px 12px;
+  }
+}

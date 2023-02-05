@@ -1,0 +1,22 @@
+// ? ScreenSizes
+$mobileScreensize: 640px;
+$tabletScreensize: 768px;
+$laptopScreensize: 1040px;
+
+@mixin mobileSS() {
+  @media (max-width: $mobileScreensize) {
+    @content;
+  }
+}
+
+@mixin tabletSS() {
+  @media (max-width: $tabletScreensize) {
+    @content;
+  }
+}
+
+@mixin laptopSS() {
+  @media (max-width: $laptopScreensize) {
+    @content;
+  }
+}
