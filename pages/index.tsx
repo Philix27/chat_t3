@@ -1,5 +1,6 @@
-import HomeView from "../client/views/home/home.veiw";
+import React from "react";
+import { HomeLanding } from "../client/views/Landing/Landing";
 
-export default function Home() {
-  return <HomeView />;
+export default function HomePage() {
+  return <HomeLanding />;
 }

@@ -15,7 +15,7 @@ $laptopScreensize: 1040px;
   }
 }
 
-@mixin laptop() {
+@mixin laptopSS() {
   @media (max-width: $laptopScreensize) {
     @content;
   }

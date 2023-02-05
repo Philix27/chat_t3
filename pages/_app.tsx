@@ -2,9 +2,14 @@ import { type AppType } from "next/app";
 import { type Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
 import { api } from "../client/utils/api";
-
 import "../styles/index.scss";
 import "../styles/globals.css";
+import graphqlClient, {
+  socket,
+  WebSocketProvider,
+} from "../client/graphql/apollo";
+import { ApolloProvider } from "@apollo/client";
+import Layout from "../client/comps/global/Layout";
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
@@ -12,7 +17,13 @@ const MyApp: AppType<{ session: Session | null }> = ({
 }) => {
   return (
     <SessionProvider session={session}>
-      <Component {...pageProps} />
+      <ApolloProvider client={graphqlClient}>
+        <WebSocketProvider value={socket}>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </WebSocketProvider>
+      </ApolloProvider>
     </SessionProvider>
   );
 };

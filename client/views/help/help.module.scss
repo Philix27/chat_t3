@@ -1,0 +1,84 @@
+@import "../../../styles/variables";
+@import "../../../styles/screensize";
+
+.help {
+  margin-left: 200px;
+  padding: 10px 40px;
+  @include tabletSS {
+    margin: 0px;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    h1 {
+      padding-bottom: 5rem;
+      padding-top: 3rem;
+      font-size: larger;
+      color: $primaryColor;
+    }
+    .gridContainer {
+      padding: 50px auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: 5rem;
+      row-gap: 5rem;
+
+      @include laptopSS {
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 3rem;
+      }
+      @include tabletSS {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 3rem;
+      }
+      @include mobileSS {
+        grid-template-columns: repeat(1, 1fr);
+        padding: 20px 10px;
+      }
+
+      div {
+        background-color: #fff;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        height: 22rem;
+        width: 22rem;
+        border-radius: 20px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .icon {
+          color: $primaryColor;
+          font-size: 6rem;
+          font-weight: bold;
+        }
+        h3 {
+          color: $primaryColor;
+          padding: 20px;
+        }
+        p {
+          color: rgb(121, 119, 119);
+          font-weight: 300;
+          text-align: center;
+          font-size: small;
+        }
+        &:hover {
+          background-color: $primaryColor;
+          color: #fff;
+          h3,
+          p {
+            color: #fff;
+          }
+          .icon {
+            color: #fff;
+            font-size: 8rem;
+          }
+        }
+      }
+    }
+  }
+}
